@@ -17,8 +17,8 @@
 	<body>
 		<div class="nav">
 			<ul>
-  				<li><a href="internship_home.html">Internships Home</a></li>
-  				<li><a href="add_review.html">Submit an Internship Review</a></li>
+  				<li><a href="internship_home.php">Internships Home</a></li>
+  				<li><a href="add_review.php">Submit an Internship Review</a></li>
 			</ul> 
 		</div>
 		<div class="title">
@@ -96,7 +96,7 @@
 			<input type="text" class="field" size="35" style="margin-bottom: 20px;" /> <br>
 			<center>
 				<img src="not-a-robot.png" alt="captcha" width="350" height="100">
-				<form action="review_submitted.html" style="margin-top: 20px; margin-bottom: 20px;">
+				<form action="review_submitted.php" style="margin-top: 20px; margin-bottom: 20px;">
 					<input type="submit" value="Submit Review" class="submit" />
 				</form>
 			</center>
