@@ -12,8 +12,8 @@
 	<body>
 		<div class="nav">
 			<ul>
-  				<li><a href="internship_home.html">Internships Home</a></li>
-  				<li><a href="add_review.html">Submit an Internship Review</a></li>
+  				<li><a href="internship_home.php">Internships Home</a></li>
+  				<li><a href="add_review.php">Submit an Internship Review</a></li>
 			</ul> 
 		</div>
 		<div class="title">
@@ -31,8 +31,8 @@
 					<td>Fredericksburg, VA</td>
 					<div id="row1" class="dropdownHidden">
 						<ul>
-							<li><a href="employer_profile.html">View Employer Details</a></li>
-							<li><a href="add_review.html">Submit a Review</a></li>
+							<li><a href="employer_profile.php">View Employer Details</a></li>
+							<li><a href="add_review.php">Submit a Review</a></li>
 						</ul>
 					</div>
 				</tr>
@@ -51,7 +51,7 @@
 			</table>
 		</div>
 		<div class="map">
-			<a href="employer_profile.html"><img src="map.PNG" alt="interactive map" height="350" width="425" border="3"></a>
+			<a href="employer_profile.php"><img src="map.PNG" alt="interactive map" height="350" width="425" border="3"></a>
 		</div>
 	</body>
 </html>
