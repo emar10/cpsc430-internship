@@ -46,38 +46,14 @@
 
 <div class="jumbotron main"> <!-- jumbotron acts like a big screen, and anything inside of it is fit to its dimensions -->
   <div class="container-fluid"> <!-- normally this would watch screen-width, but since it's in a jumbotron, it only matches jumbotron width -->
-    <div><center><h1>UMW Computer Science Internships</h1></center></div>
+    <div><center><h1>Review Submitted</h1></center></div>
     
-    <!-- Employer Table -->
-    <div>
-      <table class="table table-white">
-        <tr>
-          <th scope="col" width="60%">Employer</th>
-          <th scope="col">City</th>
-          <th scope="col"><th>
-        </tr>
-        <!-- Modify to PHP function which prints rows for each employer in database --> 
-        <tr>
-          <td>SimVentions</td>
-          <td>Fredericksburg, VA</td>
-          <td>
-            <div class="dropdown">
-              <button type="button" class="btn" data-toggle="dropdown">
-                <img src='../include/images/arrow.png' width="20" height="20">
-              </button>
-              <div class="dropdown-menu">
-                <!-- Modify so that destination page knows what employer is being selected here -->
-                <a class="dropdown-item" href="employer_details.php">View Employer Details</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="add_review.php">Submit a Review</a>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <!-- End of row -->
-      </table>
+    <div style="text-align: center;">
+      <p>Thank you for your review!<br>A verification email has been sent to the address provided. Your review will be added upon verification.</p>
+      <form action="internship_home.php">
+        <input type="submit" value="Return to Internship Home" class="submit" />
+      </form>
     </div>
-    <!-- End of Employer Table -->
 
   </div>
 </div>
