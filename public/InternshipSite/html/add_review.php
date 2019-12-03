@@ -79,22 +79,8 @@
       <div id="employerFields" class="employerInfoHidden">
         <p>Employer Name</p>
         <input type="text" class="field" size="30" /> <br>
-        <p>Address Line 1</p>
-        <input type="text" class="field" size="30" /> <br>
-        <p>Address Line 2</p>
-        <input type="text" class="field" size="30" /> <br>
-        <div style="display: inline-block;">
-          <p>City</p>
-          <input type="text" class="field" size="20" /> <br>
-        </div>
-        <div style="display: inline-block;">
-          <p>State</p>
-          <input type="text" class="field" size="2" /> <br>
-        </div>
-        <div style="display: inline-block;">
-          <p>Zip Code</p>
-          <input type="text" class="field" size="10" /> <br>
-        </div>
+        <p>Location (street address, city, state) </p>
+        <input type="text" class="field" size="40" /> <br>
         <p>Brief Description</p>
         <textarea class="field" rows="3" cols="40"></textarea>
         <p>Website</p>
