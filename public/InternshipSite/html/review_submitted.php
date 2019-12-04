@@ -21,6 +21,17 @@
 </head>
 
 <body>
+
+<!-- Container for topnav -->
+<div class="topnav">
+  <a href="#home"><img src="../include/images/home.png" width="15" height = "15"><br>Home</a>
+  <a href="#t3"><img src="../include/images/wrench.png" width="15" height = "15"><br>Tools, Tips, and Tricks</a>
+  <a href="#intern"><img src="../include/images/briefcase.png" width="15" height = "15"><br>Internships</a>
+  <a href="#ctf"><img src="../include/images/flag.png" width="15" height = "15"><br>Capture the Flag</a>
+  <a href="#alumni"><img src="../include/images/persons.png" width="15" height = "15"><br>Alumni</a>
+  <a href="#research"><img src="../include/images/books.png" width="15" height = "15"><br>Research</a>
+</div>
+
 <!-- Container for header -->
 <div class="container-fluid"> <!-- container-fluid is a full width container. it scales to the screen width -->
     <div class="row header"> <!-- each row can contain up to 12 columns. no matter what, all col must add up to 12 -->

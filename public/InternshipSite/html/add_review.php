@@ -34,6 +34,17 @@
 </head>
 
 <body>
+
+<!-- Container for topnav -->
+<div class="topnav">
+  <a href="#home"><img src="../include/images/home.png" width="15" height = "15"><br>Home</a>
+  <a href="#t3"><img src="../include/images/wrench.png" width="15" height = "15"><br>Tools, Tips, and Tricks</a>
+  <a href="#intern"><img src="../include/images/briefcase.png" width="15" height = "15"><br>Internships</a>
+  <a href="#ctf"><img src="../include/images/flag.png" width="15" height = "15"><br>Capture the Flag</a>
+  <a href="#alumni"><img src="../include/images/persons.png" width="15" height = "15"><br>Alumni</a>
+  <a href="#research"><img src="../include/images/books.png" width="15" height = "15"><br>Research</a>
+</div>
+
 <!-- Container for header -->
 <div class="container-fluid"> <!-- container-fluid is a full width container. it scales to the screen width -->
     <div class="row header"> <!-- each row can contain up to 12 columns. no matter what, all col must add up to 12 -->
@@ -58,80 +69,77 @@
 </div>
 
 <div class="jumbotron main"> <!-- jumbotron acts like a big screen, and anything inside of it is fit to its dimensions -->
-  <div class="container-fluid"> <!-- normally this would watch screen-width, but since it's in a jumbotron, it only matches jumbotron width -->
-    <div><center><h1>Submit an Internship Review</h1></center></div>
+    <center><h1 style="margin-bottom: 10px;">Submit an Internship Review</h1></center>
     
-    <!-- Employer Information Form -->
-    <div class="employerInfo">
-      <h2>Employer Information</h2>
-      <input type="radio" name="tab" value="findemployer" checked="checked" class="radio" onclick="showEmployerDropdown();" />Select Existing Employer
-      <br>
-      <input type="radio" name="tab" value="addemployer" class="radio "onclick="showEmployerFields();" />Input Employer Information Manually
-      <div id="employerDropdown" class="dropdownEmployers">
-        <center>
-        <select style="width: 300px">
-          <!-- Modify to PHP function which prints options for each employer in database --> 
-          <option>SimVentions</option>
-          <!-- Options end -->
+    <!-- Start of form -->
+    <form action="review_submitted.php" >
+      <!-- Employer Information Form -->
+      <div class="employerInfo">
+        <h2>Employer Information</h2>
+        <input type="radio" name="tab" value="findemployer" checked="checked" class="radio" onclick="showEmployerDropdown();" />Select Existing Employer
+        <br>
+        <input type="radio" name="tab" value="addemployer" class="radio" style="margin-bottom: 10px;" onclick="showEmployerFields();" />Input Employer Information Manually
+        <div id="employerDropdown" class="dropdownEmployers">
+          <center>
+          <select style="width: 300px">
+            <!-- Modify to PHP function which prints options for each employer in database --> 
+            <option>SimVentions</option>
+            <!-- Options end -->
+          </select>
+          </center>
+        </div>
+        <div id="employerFields" class="employerInfoHidden">
+          <p>Employer Name</p>
+          <input type="text" class="field" size="30" /> <br>
+          <p>Location (street address, city, state) </p>
+          <input type="text" class="field" size="40" /> <br>
+          <p>Brief Description</p>
+          <textarea class="field" rows="3" cols="40"></textarea>
+          <p>Website</p>
+          <input type="text" class="field" size="30" /> <br>
+          <p>Handshake</p>
+          <input type="text" class="field" size="30" /> <br>
+        </div>
+      </div>
+      <!-- End of Employer Information Form -->
+
+      <!-- Review Information Form -->
+      <div class="reviewInfo">
+        <h2>Review</h2>
+        <p>Review Title</p>
+        <input type="text" class="field" size="30" /> <br>
+        <p>Score</p>
+        <select class="field">
+          <option>Select</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
         </select>
+        <p>Pay</p>
+        <input type="text" class="field" size="6" /> dollars per hour <br>
+        <p>Comments</p>
+        <textarea class="field" rows="5" cols="42"></textarea>
+        <div style="display: inline-block;">
+          <p>Start Date</p>
+          <input type="date" class="field" /> <br>
+        </div>
+        <div style="display: inline-block;">
+          <p>End Date</p>
+          <input type="date" class="field" /> <br>
+        </div>
+        <p>Reviewer Email</p>
+        <input type="text" class="field" size="30" style="margin-bottom: 20px;" /> <br>
+        <center>
+          <!-- Submit Button -->
+          <input type="submit" value="Submit Review" class="submit" style="margin-top: 20px; margin-bottom: 20px;"/>
+          <!-- End of Submit Button -->
         </center>
       </div>
-      <div id="employerFields" class="employerInfoHidden">
-        <p>Employer Name</p>
-        <input type="text" class="field" size="30" /> <br>
-        <p>Location (street address, city, state) </p>
-        <input type="text" class="field" size="40" /> <br>
-        <p>Brief Description</p>
-        <textarea class="field" rows="3" cols="40"></textarea>
-        <p>Website</p>
-        <input type="text" class="field" size="30" /> <br>
-        <p>Handshake</p>
-        <input type="text" class="field" size="30" /> <br>
-      </div>
-    </div>
-    <!-- End of Employer Information Form -->
-
-    <!-- Review Information Form -->
-    <div class="reviewInfo">
-      <h2>Review</h2>
-      <p>Review Title</p>
-      <input type="text" class="field" size="30" /> <br>
-      <p>Score</p>
-      <select class="field">
-        <option>Select</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-      <p>Pay</p>
-      <input type="text" class="field" size="6" /> dollars per hour <br>
-      <p>Comments</p>
-      <textarea class="field" rows="5" cols="42"></textarea>
-      <div style="display: inline-block;">
-        <p>Start Date</p>
-        <input type="date" class="field" /> <br>
-      </div>
-      <div style="display: inline-block;">
-        <p>End Date</p>
-        <input type="date" class="field" /> <br>
-      </div>
-      <p>Reviewer Email</p>
-      <input type="text" class="field" size="30" style="margin-bottom: 20px;" /> <br>
-      <center>
-        <!-- Captcha goes here -->
-        <img src="not-a-robot.png" alt="captcha" width="350" height="100">
-        <!-- Submit Button -->
-        <form action="review_submitted.php" style="margin-top: 20px; margin-bottom: 20px;">
-          <input type="submit" value="Submit Review" class="submit" />
-        </form>
-        <!-- End of Submit Button -->
-      </center>
-    </div>
-    <!-- End of Review Information Form -->
-
-  </div>
+      <!-- End of Review Information Form -->
+    </form>
+    <!-- End of form -->
 </div>
 </body>
 </html>
