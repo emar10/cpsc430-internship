@@ -1,0 +1,163 @@
+/*TopNav*/
+.topnav {
+	overflow: hidden;
+	background-color: #4D6B8B;	
+	z-index: 1000;
+	top: 0;
+	position: fixed;
+	width: 100%; 
+}
+
+.topnav a {
+	
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 8px 20px;
+	text-decoration: none;
+	font-size: 16px;
+	width: 16.6666666666%;
+}
+
+.topnav a:hover {
+	background-color: #686663;
+	color: white;
+}
+
+/*Employer Details Page*/
+
+.employerProfile {
+	float: left;
+	display: inline-block;
+	width: 45%;
+}
+
+.employerProfile h2 {
+	color: white;
+	padding: 5px;
+	margin-top: 0;
+	margin-bottom: 5px;
+	font-size: 40px;
+}
+
+.employerProfile p {
+	margin-left: 10px;
+	margin-top: 0;
+}
+
+.profileHeading {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 3px;
+}
+
+.reviewContainer {
+	display: inline-block;
+	margin-left: 20px;
+	width: 50%;
+}
+
+.reviewContainer h3 {
+	color: white;
+	padding: 5px;
+	margin-top: 0;
+	margin-bottom: 5px;
+	font-size: 24px;
+}
+
+.employerProfile p {
+	margin-left: 10px;
+	margin-top: 0;
+}
+
+.reviewBox p {
+	margin-left: 10px;
+	margin-top: 0;
+}
+
+.reviewDate {
+	margin-left: 10px;
+	margin-top: 0;
+	margin-bottom: 3px;
+}
+
+.reviewTitle {
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/*Add Review Page*/
+
+h2 {
+	color: white;
+	padding: 5px;
+	margin-top: 0;
+}
+
+textarea {
+	resize: none;
+	overflow-y: scroll;
+}
+
+.field {
+	margin-top: 1px;
+	margin-left: 5px;
+	margin-bottom: 3px;
+}
+
+/*Add Review: Employer Info fields*/
+
+.employerInfo {
+	display: inline-block;
+	float: left;
+	width: 50%;
+}
+
+.employerInfo p {
+	margin-left: 5px;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.dropdownEmployers {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.employerInfoHidden {
+	display: none;
+}
+
+/*Add Review: Review Info fields*/
+
+.reviewInfo {
+	display: inline-block;
+	width: 48%;
+
+}
+
+.reviewInfo p {
+	margin-left: 5px;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.submit {
+	background-color: #686663;
+  	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+  	border-radius: 4px;
+}
+
+.submit:hover {
+  background-color: #00305e;
+  color: white;
+}
