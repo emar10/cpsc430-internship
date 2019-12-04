@@ -106,8 +106,6 @@
       <!-- Review Information Form -->
       <div class="reviewInfo">
         <h2>Review</h2>
-        <p>Review Title</p>
-        <input type="text" class="field" size="30" /> <br>
         <p>Score</p>
         <select class="field">
           <option>Select</option>
