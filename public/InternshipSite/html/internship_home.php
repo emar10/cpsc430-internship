@@ -61,14 +61,14 @@
     <div>
       <table class="table table-white">
         <tr>
-          <th scope="col" width="60%">Employer</th>
-          <th scope="col">City</th>
+          <th scope="col" width="40%">Employer</th>
+          <th scope="col" width="50%">Location</th>
           <th scope="col"><th>
         </tr>
         <!-- Modify to PHP function which prints rows for each employer in database --> 
         <tr>
           <td>SimVentions</td>
-          <td>Fredericksburg, VA</td>
+          <td>100 Riverside Pkwy, Fredericksburg, VA</td>
           <td>
             <div class="dropdown">
               <button type="button" class="btn" data-toggle="dropdown">
@@ -79,6 +79,8 @@
                 <a class="dropdown-item" href="employer_details.php">View Employer Details</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="add_review.php">Submit a Review</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" onclick="">View on Map</a>
               </div>
             </div>
           </td>
