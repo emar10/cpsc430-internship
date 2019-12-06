@@ -65,7 +65,49 @@
           <th scope="col" width="50%">Location</th>
           <th scope="col"><th>
         </tr>
-        <!-- Modify to PHP function which prints rows for each employer in database --> 
+        <!-- Modify to PHP function which prints rows for each employer in database -->
+        <?php
+          $host = 'localhost';
+          $username = 'cpsc';
+          $password = '430';
+          $dbname = 'internship';
+
+          $conn = new mysqli($host, $username, $password, $dbname);
+          if(mysqli_connect_error())
+          {
+            die('Connect Error (' . mysqli_connect_errorno() . ')' . mysqli_connect_error());
+          } 
+          else 
+          {
+            $sql = "SELECT name, location FROM employer";
+            $result = mysqli_query($conn, $sql) or die('error getting data');
+            while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+            {
+              //$trimmedName = str_replace(' ', '', $row['name']); //used for passing to employer details page
+              echo "<tr><td>";
+              echo $row['name'];
+              echo "</td><td>";
+              echo $row['location'];
+              echo "</td>";
+              echo "<td>
+                      <div class=\"dropdown\">
+                        <button type=\"button\" class=\"btn\" data-toggle=\"dropdown\">
+                          <img src=\"../include/images/arrow.png\" width=\"20\" height=\"20\">
+                        </button>
+                        <div class=\"dropdown-menu\">
+                          <a class=\"dropdown-item\" href=\"employer_details.php?id=".$row['name']."\">View Employer Details</a>
+                          <div class=\"dropdown-divider\"></div>
+                          <a class=\"dropdown-item\" href=\"add_review.php\">Submit a Review</a>
+                          <div class=\"dropdown-divider\"></div>
+                          <a class=\"dropdown-item\" onclick=\"\">View on Map</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>";
+            }
+          }
+        ?>
+        <!-- Test Template Row
         <tr>
           <td>SimVentions</td>
           <td>100 Riverside Pkwy, Fredericksburg, VA</td>
@@ -75,7 +117,6 @@
                 <img src='../include/images/arrow.png' width="20" height="20">
               </button>
               <div class="dropdown-menu">
-                <!-- Modify so that destination page knows what employer is being selected here -->
                 <a class="dropdown-item" href="employer_details.php">View Employer Details</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="add_review.php">Submit a Review</a>
@@ -85,7 +126,7 @@
             </div>
           </td>
         </tr>
-        <!-- End of row -->
+        -->
       </table>
     </div>
     <!-- End of Employer Table -->
