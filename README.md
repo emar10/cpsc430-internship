@@ -1,4 +1,4 @@
-##Internship Website
+#Internship Website
 The internship website is for UMW computer science students looking for an internship or who want to leave a review about an internship they have completed.
 
 ## Installation
@@ -45,5 +45,5 @@ Run:
 $ sudo mysql -u cpsc -p
 You'll be prompted for a password, the password is 430
 
-##Authors
+#Authors
 Jessica Thomas, Michael Windsor, Kevin Gardella
