@@ -31,18 +31,21 @@
       }
   </script>
 
+  <!---script for captcha --->
+  <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+
 </head>
 
 <body>
 
 <!-- Container for topnav -->
 <div class="topnav">
-  <a href="#home"><img src="../include/images/home.png" width="15" height = "15"><br>Home</a>
-  <a href="#t3"><img src="../include/images/wrench.png" width="15" height = "15"><br>Tools, Tips, and Tricks</a>
-  <a href="#intern"><img src="../include/images/briefcase.png" width="15" height = "15"><br>Internships</a>
-  <a href="#ctf"><img src="../include/images/flag.png" width="15" height = "15"><br>Capture the Flag</a>
-  <a href="#alumni"><img src="../include/images/persons.png" width="15" height = "15"><br>Alumni</a>
-  <a href="#research"><img src="../include/images/books.png" width="15" height = "15"><br>Research</a>
+  <a href="http://35.199.20.205"><img src="../include/images/home.png" width="15" height = "15"><br>Home</a>
+  <a href="http://35.199.20.205/index.php"><img src="../include/images/wrench.png" width="15" height = "15"><br>Tools, Tips, and Tricks</a>
+  <a href="http://34.74.193.71/html/internship_home.php"><img src="../include/images/briefcase.png" width="15" height = "15"><br>Internships</a>
+  <a href="http://35.226.71.244/index.php"><img src="../include/images/flag.png" width="15" height = "15"><br>Capture the Flag</a>
+  <a href="http://35.185.94.134"><img src="../include/images/persons.png" width="15" height = "15"><br>Alumni</a>
+  <a href="http://35.245.253.27/Home.php"><img src="../include/images/books.png" width="15" height = "15"><br>Research</a>
 </div>
 
 <!-- Container for header -->
@@ -58,7 +61,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="add_review.php"><h3>Submit an Internship Review</h3></a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#"><h3>Internship Opportunities</h3></a>
+            <a class="dropdown-item" href="LoginTemplate.php"><h3>Administrator Tools</h3></a>
           </div>
         </div>
     </div> <!-- img-fluid will scaled images to the size of their parent -->
@@ -72,7 +75,7 @@
     <center><h1 style="margin-bottom: 10px;">Submit an Internship Review</h1></center>
     
     <!-- Start of form -->
-    <form method="post" action="submit.php" >
+    <form method="post" action="review_submitted.php" >
       <!-- Employer Information Form -->
       <div class="employerInfo">
         <h2>Employer Information</h2>
@@ -156,8 +159,11 @@
           <!-- Submit Button -->
           <input type="submit" value="Submit Review" class="submit" style="margin-top: 20px; margin-bottom: 20px;"/>
           <!-- End of Submit Button -->
+          <!---For the captcha --->
+         <div class="g-recaptcha" data-sitekey="6LdRhcYUAAAAAG_riZjVSCuiqkn3E7JQ9vpgVjKL"></div>
         </center>
       </div>
+      
       <!-- End of Review Information Form -->
     </form>
     <!-- End of form -->

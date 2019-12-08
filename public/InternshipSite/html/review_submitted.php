@@ -85,7 +85,7 @@
         }
 //code for captcha
   if(!$captcha){
-    echo '<h2>Please check the captcha form.</h2>';
+    echo '<center><h2>Please check the captcha form.</h2></center>';
     exit;
   }
   $secretKey="6LdRhcYUAAAAAA_kA3lbjh4VREdOUhnkc_jBeEMc";

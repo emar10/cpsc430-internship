@@ -18,18 +18,116 @@
   <link rel="stylesheet" type="text/css" href="../css/BootstrapTemplate.css">
   <!-- Internship Website Stylesheet Link -->
   <link rel="stylesheet" type="text/css" href="../css/InternshipStyle.css">
+  <!-- Map -->
+  <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"/>
+
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        let ps = placeSearch({
+          key: 'lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24',
+          container: document.querySelector('#search-input'),
+          useDeviceLocation: true,
+          collection: [
+            'poi',
+            'airport',
+            'address',
+            'adminArea',
+          ]
+        });
+
+        L.mapquest.key = 'lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24';
+
+        var map = L.mapquest.map('map', {
+          center: [38.3032, -77.4605],
+          layers: L.mapquest.tileLayer('map'),
+          zoom: 8
+        });
+
+        L.mapquest.control().addTo(map);
+
+        let markers = [];
+
+        ps.on('change', (e) => {
+          markers
+            .forEach(function(marker, markerIndex) {
+              if (markerIndex === e.resultIndex) {
+                markers = [marker];
+                marker.setOpacity(1);
+                map.setView(e.result.latlng, 11);
+              } else {
+                removeMarker(marker);
+              }
+            });
+        });
+
+        ps.on('results', (e) => {
+          markers.forEach(removeMarker);
+          markers = [];
+
+          if (e.results.length === 0) {
+            map.setView(new L.LatLng(0, 0), 2);
+            return;
+          }
+
+          e.results.forEach(addMarker);
+          findBestZoom();
+        });
+
+        ps.on('cursorchanged', (e) => {
+          markers
+            .forEach(function(marker, markerIndex) {
+              if (markerIndex === e.resultIndex) {
+                marker.setOpacity(1);
+                marker.setZIndexOffset(1000);
+              } else {
+                marker.setZIndexOffset(0);
+                marker.setOpacity(0.5);
+              }
+            });
+        });
+
+        ps.on('clear', () => {
+          console.log('cleared');
+          map.setView(new L.LatLng(0, 0), 2);
+          markers.forEach(removeMarker);
+        });
+
+        ps.on('error', (e) => {
+          console.log(e);
+        });
+
+        function addMarker(result) {
+          let marker = L.marker(result.latlng, {opacity: .4});
+          marker.addTo(map);
+          markers.push(marker);
+        }
+
+        function removeMarker(marker) {
+          map.removeLayer(marker);
+        }
+
+        function findBestZoom() {
+          let featureGroup = L.featureGroup(markers);
+          map.fitBounds(featureGroup.getBounds().pad(0.5), { animate: false });
+        }
+      }
+    </script>
+
 </head>
 
 <body>
-
 <!-- Container for topnav -->
 <div class="topnav">
-  <a href="#home"><img src="../include/images/home.png" width="15" height = "15"><br>Home</a>
-  <a href="#t3"><img src="../include/images/wrench.png" width="15" height = "15"><br>Tools, Tips, and Tricks</a>
-  <a href="#intern"><img src="../include/images/briefcase.png" width="15" height = "15"><br>Internships</a>
-  <a href="#ctf"><img src="../include/images/flag.png" width="15" height = "15"><br>Capture the Flag</a>
-  <a href="#alumni"><img src="../include/images/persons.png" width="15" height = "15"><br>Alumni</a>
-  <a href="#research"><img src="../include/images/books.png" width="15" height = "15"><br>Research</a>
+  <a href="http://35.199.20.205/main.php"><img src="../include/images/home.png" width="15" height = "15"><br>Home</a>
+  <a href="http://35.199.20.205/index.php"><img src="../include/images/wrench.png" width="15" height = "15"><br>Tools, Tips, and Tricks</a>
+  <a href="http://34.74.193.71/html/internship_home.php"><img src="../include/images/briefcase.png" width="15" height = "15"><br>Internships</a>
+  <a href="http://35.226.71.244/index.php"><img src="../include/images/flag.png" width="15" height = "15"><br>Capture the Flag</a>
+  <a href="http://35.185.94.134"><img src="../include/images/persons.png" width="15" height = "15"><br>Alumni</a>
+  <a href="http://35.245.253.27/Home.php"><img src="../include/images/books.png" width="15" height = "15"><br>Research</a>
 </div>
 
 <!-- Container for header -->
@@ -45,7 +143,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="add_review.php"><h3>Submit an Internship Review</h3></a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#"><h3>Internship Opportunities</h3></a>
+            <a class="dropdown-item" href="LoginTemplate.php"><h3>Administrator Tools</h3></a>
           </div>
         </div>
     </div> <!-- img-fluid will scaled images to the size of their parent -->
@@ -62,8 +160,8 @@
       <table class="table table-white">
         <tr>
           <th scope="col" width="40%">Employer</th>
-          <th scope="col" width="50%">Location</th>
-          <th scope="col"><th>
+	  <th scope="col" width="50%">Location</th>
+          <th scope="col"></th>
         </tr>
         <!-- Modify to PHP function which prints rows for each employer in database -->
         <?php
@@ -88,8 +186,7 @@
               echo $row['name'];
               echo "</td><td>";
               echo $row['location'];
-              echo "</td>";
-              echo "<td>
+	      echo "</td><td>
                       <div class=\"dropdown\">
                         <button type=\"button\" class=\"btn\" data-toggle=\"dropdown\">
                           <img src=\"../include/images/arrow.png\" width=\"20\" height=\"20\">
@@ -98,8 +195,6 @@
                           <a class=\"dropdown-item\" href=\"employer_details.php?id=".$row['name']."\">View Employer Details</a>
                           <div class=\"dropdown-divider\"></div>
                           <a class=\"dropdown-item\" href=\"add_review.php\">Submit a Review</a>
-                          <div class=\"dropdown-divider\"></div>
-                          <a class=\"dropdown-item\" onclick=\"\">View on Map</a>
                         </div>
                       </div>
                     </td>
@@ -130,7 +225,9 @@
       </table>
     </div>
     <!-- End of Employer Table -->
-
+    <!-- This line declares the map to be displayed on the page -->
+    <div id="map" style="width: 100%; height:530px;"><center></center></div>
+    <input type="search" id="search-input" placeholder="Copy and paste employer address here. Then click enter!" />
   </div>
 </div>
 </body>
