@@ -72,33 +72,56 @@
     <center><h1 style="margin-bottom: 10px;">Submit an Internship Review</h1></center>
     
     <!-- Start of form -->
-    <form action="review_submitted.php" >
+    <form method="post" action="submit.php" >
       <!-- Employer Information Form -->
       <div class="employerInfo">
         <h2>Employer Information</h2>
         <input type="radio" name="tab" value="findemployer" checked="checked" class="radio" onclick="showEmployerDropdown();" />Select Existing Employer
         <br>
-        <input type="radio" name="tab" value="addemployer" class="radio" style="margin-bottom: 10px;" onclick="showEmployerFields();" />Input Employer Information Manually
+        <input type="radio" name="tabtwo" value="addemployer" class="radio" style="margin-bottom: 10px;" onclick="showEmployerFields();" />Input Employer Information Manually
         <div id="employerDropdown" class="dropdownEmployers">
-          <center>
-          <select style="width: 300px">
+              <center>
+              <select style="width: 300px" name=employer>
             <!-- Modify to PHP function which prints options for each employer in database --> 
-            <option>SimVentions</option>
-            <!-- Options end -->
+          <?php
+            $host = 'localhost';
+            $username = 'cpsc';
+            $password = '430';
+            $dbname = 'internship';
+
+            $conn = new mysqli($host, $username, $password, $dbname);
+            if(mysqli_connect_error()){
+              die('Connect Error ('.mysqli_connect_errorno().')'.mysqli_connect_error());
+            }else{
+             $sql = "SELECT name FROM employer";
+              $result = mysqli_query($conn, $sql) or die('error getting data');
+              while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+              
+             echo "<option value='".$row['name']."'>".$row['name']."</option>";
+              
+              } 
+              
+            }
+          ?>
+
           </select>
           </center>
-        </div>
-        <div id="employerFields" class="employerInfoHidden">
+          </div>
+            <!-- Options end -->
+          
+
+<!--- Employer Table --->
+  <div id="employerFields" class="employerInfoHidden">
           <p>Employer Name</p>
-          <input type="text" class="field" size="30" /> <br>
+          <input type="text" class="field" size="30" name="name" /> <br>
           <p>Location (street address, city, state) </p>
-          <input type="text" class="field" size="40" /> <br>
+          <input type="text" class="field" size="40" name="loc" /> <br>
           <p>Brief Description</p>
-          <textarea class="field" rows="3" cols="40"></textarea>
+          <textarea class="field" rows="3" cols="40" name="desc"></textarea>
           <p>Website</p>
-          <input type="text" class="field" size="30" /> <br>
+          <input type="text" class="field" size="30" name="url"/> <br>
           <p>Handshake</p>
-          <input type="text" class="field" size="30" /> <br>
+          <input type="text" class="field" size="30" name="handshake"/> <br>
         </div>
       </div>
       <!-- End of Employer Information Form -->
@@ -107,28 +130,28 @@
       <div class="reviewInfo">
         <h2>Review</h2>
         <p>Score</p>
-        <select class="field">
+        <select class="field" name="score">
           <option>Select</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
         </select>
         <p>Pay</p>
-        <input type="text" class="field" size="6" /> dollars per hour <br>
+        <input type="text" class="field" size="6" name="pay" /> dollars per hour <br>
         <p>Comments</p>
-        <textarea class="field" rows="5" cols="42"></textarea>
+        <textarea class="field" rows="5" cols="42" name="comment"></textarea>
         <div style="display: inline-block;">
           <p>Start Date</p>
-          <input type="date" class="field" /> <br>
+          <input type="date" class="field" name="start"/> <br>
         </div>
         <div style="display: inline-block;">
           <p>End Date</p>
-          <input type="date" class="field" /> <br>
+          <input type="date" class="field" name="end"/> <br>
         </div>
         <p>Reviewer Email</p>
-        <input type="text" class="field" size="30" style="margin-bottom: 20px;" /> <br>
+        <input type="text" class="field" size="30" style="margin-bottom: 20px;" name="email" /> <br>
         <center>
           <!-- Submit Button -->
           <input type="submit" value="Submit Review" class="submit" style="margin-top: 20px; margin-bottom: 20px;"/>
